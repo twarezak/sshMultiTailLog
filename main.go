@@ -10,7 +10,7 @@ import (
 	"os"
 )
 
-var tailLogCmd = "tail -f /var/log/php/all.log"
+var tailLogCmd = "tail -f "
 
 func main() {
 	config := getConfig()
@@ -34,7 +34,7 @@ func getConfig() Hosts {
 	return hosts
 }
 
-func TailLog(name string, client *ssh.Client, lines chan<- string) {
+func TailLog(host Host, client *ssh.Client, lines chan<- string) {
 	sess, _ := client.NewSession()
 	defer sess.Close()
 
@@ -43,10 +43,10 @@ func TailLog(name string, client *ssh.Client, lines chan<- string) {
 	scanner := bufio.NewScanner(out)
 	scanner.Split(bufio.ScanLines)
 
-	_ = sess.Start(tailLogCmd)
+	_ = sess.Start(tailLogCmd + host.LogFile)
 
 	for scanner.Scan() {
-		lines <- fmt.Sprintf("[%s] %s", name, scanner.Text())
+		lines <- fmt.Sprintf("[%s] %s", host.Address, scanner.Text())
 	}
 
 	_ = sess.Wait()
@@ -68,7 +68,7 @@ func MultiTail(hosts []Host) {
 			log.Fatal("Failed to dial: ", err)
 		}
 
-		go TailLog(host.Address, client, lines)
+		go TailLog(host, client, lines)
 	}
 
 	for l := range lines {

@@ -8,4 +8,5 @@ type Host struct {
 	Address  string `json:"address"`
 	User     string `json:"user"`
 	Password string `json:"password"`
+	LogFile  string `json:"logfile"`
 }
