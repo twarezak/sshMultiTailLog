@@ -1,0 +1,22 @@
+{
+  "hosts": [
+    {
+      "address": "127.0.0.1",
+      "username": "root",
+      "password": "secret",
+      "logfile": "/var/log/php.all"
+    },
+    {
+      "address": "127.0.0.2",
+      "username": "root",
+      "password": "secret",
+      "logfile": "/var/log/php.all"
+    },
+    {
+      "address": "127.0.0.3",
+      "username": "root",
+      "password": "secret",
+      "logfile": "/var/log/php.all"
+    }
+  ]
+}
