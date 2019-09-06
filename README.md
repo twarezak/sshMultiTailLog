@@ -10,19 +10,19 @@ Simple program for display logs from multi servers in one place.
           "hosts": [
             {
               "address": "127.0.0.1",
-              "username": "root",
+              "user": "root",
               "password": "secret",
               "logfile": "/var/log/php7.2-fpm.log"
             },
             {
               "address": "127.0.0.2",
-              "username": "root",
+              "user": "root",
               "password": "secret",
               "logfile": "/var/log/php7.2-fpm.log"
             },
             {
               "address": "127.0.0.3",
-              "username": "root",
+              "user": "root",
               "password": "secret",
               "logfile": "/var/log/php7.2-fpm.log"
             }
