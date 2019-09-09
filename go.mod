@@ -1,4 +1,4 @@
-module mycode/ssh
+module sshMultiTailLog
 
 go 1.12
 

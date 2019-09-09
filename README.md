@@ -29,4 +29,4 @@ Simple program for display logs from multi servers in one place.
           ]
         }
         
-2. Run program
+2. (Build and) run program `./sshMultiTailLog`
